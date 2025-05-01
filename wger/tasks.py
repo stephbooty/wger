@@ -323,26 +323,13 @@ def get_path(file='settings.py') -> pathlib.Path:
     return (pathlib.Path(__file__).parent.parent / file).resolve()
 
 
-def setup_django_environment(settings_path):
+def setup_django_environment(settings_path=None):
     """
-    Setup the django environment
+    Setup the Django environment with the correct settings module
     """
-
-    # Use default settings if the user didn't specify something else
-    if settings_path is None:
-        settings_path = get_path('settings.py').as_posix()
-        print(f'*** No settings given, using {settings_path}')
-
-    # Find out file path and fine name of settings and setup django
-    settings_file = os.path.basename(settings_path)
-    settings_module_name = ''.join(settings_file.split('.')[:-1])
-    if '.' in settings_module_name:
-        print("'.' is not an allowed character in the settings-file")
-        sys.exit(1)
-    settings_module_dir = os.path.dirname(settings_path)
-    sys.path.append(settings_module_dir)
-    os.environ[django.conf.ENVIRONMENT_VARIABLE] = '%s' % settings_module_name
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'extras.docker.production.settings')
     django.setup()
+
 
 
 def database_exists():
