@@ -28,6 +28,7 @@ classifiers = [
 ]
 
 dependencies = [
+    "gunicorn==23.0.0",
     "bleach[css]~=6.2",
     "celery[redis]==5.4.0",
     "crispy-bootstrap5==2024.10",
@@ -78,9 +79,7 @@ dev = [
     "wheel==0.45.1",
 ]
 
-docker = [
-    "gunicorn==23.0.0",
-]
+
 
 
 [project.urls]
