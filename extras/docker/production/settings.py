@@ -56,6 +56,8 @@ SITE_URL = env.str('SITE_URL', 'http://localhost:8000')
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # If you change these, adjust nginx alias definitions as well
 MEDIA_URL = env.str('MEDIA_URL', '/media/')
