@@ -20,9 +20,10 @@
     "popper.js": "^1.16.1",
     "yarn": "^1.22.22"
   },
-  "scripts": {
-    "build:css:sass": "sass wger/core/static/scss/main.scss wger/core/static/yarn/bootstrap-compiled.css"
-  },
+ "scripts": {
+  "build:css:sass": "sass wger/core/static/scss/main.scss wger/core/static/yarn/bootstrap-compiled.css",
+  "build": "yarn build:css:sass"
+},
   "engines": {
     "yarn": ">= 1.0.0"
   }
